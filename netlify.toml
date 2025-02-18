@@ -1,4 +1,6 @@
-[[headers]]
-for = "/*"
-[headers.values]
-Authorization = "Basic"
+[[redirects]]
+  from = "/*"
+  to = "/login.html"
+  status = 200
+  force = true
+  conditions = { Role = ["visitor"] }
