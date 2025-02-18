@@ -1,1 +1,13 @@
-/login  /login.html  200
+[build]
+  command = "echo No build command needed"
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/.netlify/identity/**"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
