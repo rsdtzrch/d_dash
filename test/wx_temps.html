@@ -350,10 +350,13 @@
 	loadTable("table-container-1", "tbl/table1.html");
 	loadTable("table-container-2", "tbl/table2.html");
 </script>
-    <script src="/d_dash/auth.js"></script> <!-- Ensure correct path -->
-    <script>
-        checkAuth(); // Enforce authentication
-    </script>
+<script src="/d_dash/auth.js"></script>
+<script>
+    if (localStorage.getItem("auth")) {
+        window.location.href = "/index.html"; // Redirect logged-in users
+    }
+</script>
+
 
 
 	
