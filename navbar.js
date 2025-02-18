@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("navbar.html")  // Adjust path if needed
+    fetch("../navbar.html")  // Adjust path if needed
         .then(response => response.text())
         .then(html => {
             document.getElementById("navbar-container").innerHTML = html;
