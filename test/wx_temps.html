@@ -14,6 +14,10 @@
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="../navbar.js" defer></script>
 	<script src="../img_modal.js" defer></script>
+	<script src="/d_dash/auth.js"></script>
+	<script>
+		checkAuth(); // Ensure unauthorized users are redirected to login.html
+	</script>
 
 
 
@@ -350,10 +354,7 @@
 	loadTable("table-container-1", "tbl/table1.html");
 	loadTable("table-container-2", "tbl/table2.html");
 </script>
-<script src="/d_dash/auth.js"></script>
-<script>
-    checkAuth(); // Ensure unauthorized users are redirected to login.html
-</script>
+
 
 
 	
