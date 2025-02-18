@@ -1,7 +1,8 @@
 const validUsers = {
     "admin": "password123",
     "user1": "mypassword",
-    "testuser": "test123"
+    "testuser": "test123",
+	"baar":"zagreb"
 };
 
 function login() {
