@@ -26,6 +26,6 @@ function logout() {
 // Redirect if user is not logged in (Applies to all pages that include auth.js)
 function checkAuth() {
     if (!localStorage.getItem("auth")) {
-        window.location.href = "/d_dash/login.html"; // Redirect unauthorized users
+        window.location.href = "login.html"; // Redirect unauthorized users
     }
 }
