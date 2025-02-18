@@ -50,26 +50,37 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const username = localStorage.getItem("username");
-        const authStatus = localStorage.getItem("auth");
+    // Ensure the script only runs when the page is fully loaded
+    window.addEventListener("load", function() {
+        console.log("✅ Navbar Script Loaded"); // Debugging
 
-        console.log("Navbar Script Loaded"); // Debugging
+        const authStatus = localStorage.getItem("auth");
+        const username = localStorage.getItem("username");
+
         console.log("Auth Status:", authStatus); // Debugging
         console.log("Username:", username); // Debugging
 
-        if (authStatus === "true") { // Ensure correct string value
-            document.getElementById("username").innerText = username;
-            document.getElementById("user-greeting").style.display = "inline-block";
-            document.getElementById("logout-btn").style.display = "inline-block";
-            console.log("Logout button is now visible"); // Debugging
+        const userGreeting = document.getElementById("user-greeting");
+        const usernameSpan = document.getElementById("username");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        if (!userGreeting || !usernameSpan || !logoutBtn) {
+            console.error("❌ Navbar elements not found in DOM.");
+            return;
+        }
+
+        if (authStatus === "true") { // Ensure correct string comparison
+            usernameSpan.innerText = username; // Show username
+            userGreeting.style.display = "inline-block"; // Show greeting
+            logoutBtn.style.display = "inline-block"; // Show logout button
+            console.log("✅ Logout button should now be visible."); // Debugging
         } else {
-            console.log("User is not logged in, hiding logout button"); // Debugging
+            console.log("❌ User is not logged in, hiding logout button.");
         }
     });
 
     function logout() {
-        console.log("Logging out..."); // Debugging
+        console.log("🔴 Logging out..."); // Debugging
         localStorage.removeItem("auth");
         localStorage.removeItem("username");
         window.location.href = "/d_dash/login.html";
