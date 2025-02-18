@@ -24,11 +24,11 @@
     <div class="menu-item">
         <a href="#">Storage</a>
         <div class="submenu">
-			<a href="/d_dash/storage/nwe_stg.html">NWE</a>
-			<a href="/d_dash/storage/cee_stg.html">CEE</a>
-			<a href="/d_dash/storage/see_stg.html">SEE</a>
-			<a href="/d_dash/storage/swe_stg.html">SWE</a>
-		</div>
+            <a href="/d_dash/storage/nwe_stg.html">NWE</a>
+            <a href="/d_dash/storage/cee_stg.html">CEE</a>
+            <a href="/d_dash/storage/see_stg.html">SEE</a>
+            <a href="/d_dash/storage/swe_stg.html">SWE</a>
+        </div>
     </div>
     <div class="menu-item">
         <a href="#">Pipelines</a>
@@ -41,5 +41,29 @@
             <a href="/d_dash/test/wx_temps.html">Test2</a>
         </div>
     </div>
-	<button id="logout-btn" onclick="logout()" style="display: none;">Logout</button>
+
+    <!-- User Info & Logout Button -->
+    <div class="menu-item user-info">
+        <span id="user-greeting" style="display: none;">Welcome, <span id="username"></span></span>
+        <button id="logout-btn" onclick="logout()" style="display: none;">Logout</button>
+    </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = localStorage.getItem("username"); // Get logged-in username
+        const authStatus = localStorage.getItem("auth"); // Check if user is logged in
+
+        if (authStatus) {
+            document.getElementById("username").innerText = username; // Display username
+            document.getElementById("user-greeting").style.display = "inline-block"; // Show greeting
+            document.getElementById("logout-btn").style.display = "inline-block"; // Show logout button
+        }
+    });
+
+    function logout() {
+        localStorage.removeItem("auth"); // Remove login state
+        localStorage.removeItem("username"); // Remove stored username
+        window.location.href = "/d_dash/login.html"; // Redirect to login page
+    }
+</script>
