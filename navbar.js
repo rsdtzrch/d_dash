@@ -31,3 +31,21 @@ function attachMenuClickEvents() {
         }
     });
 }
+
+function logout() {
+    localStorage.removeItem("auth"); // Remove login state
+    window.location.href = "login.html"; // Redirect to login page
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user is logged in
+    if (localStorage.getItem("auth")) {
+        document.getElementById("logout-btn").style.display = "inline-block"; // Show logout button
+    }
+});
+
+// Logout function to clear login state and redirect
+function logout() {
+    localStorage.removeItem("auth"); // Remove authentication status
+    window.location.href = "login.html"; // Redirect to login page
+}

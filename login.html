@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script>
+        function login() {
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+
+            // Simple username and password check (Replace with actual authentication)
+            if (user === "admin" && pass === "password123") {
+                localStorage.setItem("auth", "true"); // Store login state
+                window.location.href = "index.html"; // Redirect to main page
+            } else {
+                alert("Invalid credentials!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</body>
+</html>
