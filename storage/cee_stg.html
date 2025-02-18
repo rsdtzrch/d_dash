@@ -399,10 +399,9 @@ body {
 
 <script src="/d_dash/auth.js"></script>
 <script>
-    if (localStorage.getItem("auth")) {
-        window.location.href = "/index.html"; // Redirect logged-in users
-    }
+    checkAuth(); // Ensure unauthorized users are redirected to login.html
 </script>
+
 
 
 
