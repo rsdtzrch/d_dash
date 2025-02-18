@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script>
-        function login() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+		function login() {
+			const user = document.getElementById("username").value;
+			const pass = document.getElementById("password").value;
 
-            // Simple username and password check (Replace with actual authentication)
-            if (user === "admin" && pass === "password123") {
-                localStorage.setItem("auth", "true"); // Store login state
-                window.location.href = "index.html"; // Redirect to main page
-            } else {
-                alert("Invalid credentials!");
-            }
-        }
+			const validUsers = {
+				"admin": "password123",
+				"user1": "mypassword",
+				"testuser": "test123"
+			};
+
+			if (validUsers[user] && validUsers[user] === pass) {
+				localStorage.setItem("auth", "true"); // Store login state
+				localStorage.setItem("username", user); // Store username
+				window.location.href = "index.html"; // Redirect to homepage
+			} else {
+				document.getElementById("error-msg").innerText = "Invalid credentials! Try again.";
+			}
+		}
+
     </script>
 </head>
 <body>

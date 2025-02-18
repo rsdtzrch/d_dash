@@ -51,19 +51,22 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const username = localStorage.getItem("username"); // Get logged-in username
-        const authStatus = localStorage.getItem("auth"); // Check if user is logged in
+        const username = localStorage.getItem("username");
+        const authStatus = localStorage.getItem("auth");
 
-        if (authStatus) {
-            document.getElementById("username").innerText = username; // Display username
-            document.getElementById("user-greeting").style.display = "inline-block"; // Show greeting
-            document.getElementById("logout-btn").style.display = "inline-block"; // Show logout button
+        console.log("Auth Status:", authStatus); // Debugging
+        console.log("Username:", username); // Debugging
+
+        if (authStatus === "true") { // Ensure correct string value
+            document.getElementById("username").innerText = username;
+            document.getElementById("user-greeting").style.display = "inline-block";
+            document.getElementById("logout-btn").style.display = "inline-block";
         }
     });
 
     function logout() {
-        localStorage.removeItem("auth"); // Remove login state
-        localStorage.removeItem("username"); // Remove stored username
-        window.location.href = "/d_dash/login.html"; // Redirect to login page
+        localStorage.removeItem("auth");
+        localStorage.removeItem("username");
+        window.location.href = "/d_dash/login.html";
     }
 </script>
