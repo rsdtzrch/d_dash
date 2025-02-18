@@ -436,6 +436,11 @@ body {
         });
 </script>
 
+<script>
+    if (!localStorage.getItem("auth")) {
+        window.location.href = "login.html"; // Redirect to login page if user is not logged in
+    }
+</script>
 
 	
 </body>
