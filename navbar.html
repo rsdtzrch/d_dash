@@ -54,6 +54,7 @@
         const username = localStorage.getItem("username");
         const authStatus = localStorage.getItem("auth");
 
+        console.log("Navbar Script Loaded"); // Debugging
         console.log("Auth Status:", authStatus); // Debugging
         console.log("Username:", username); // Debugging
 
@@ -61,10 +62,14 @@
             document.getElementById("username").innerText = username;
             document.getElementById("user-greeting").style.display = "inline-block";
             document.getElementById("logout-btn").style.display = "inline-block";
+            console.log("Logout button is now visible"); // Debugging
+        } else {
+            console.log("User is not logged in, hiding logout button"); // Debugging
         }
     });
 
     function logout() {
+        console.log("Logging out..."); // Debugging
         localStorage.removeItem("auth");
         localStorage.removeItem("username");
         window.location.href = "/d_dash/login.html";
