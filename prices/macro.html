@@ -177,7 +177,7 @@
 		
 .styled-table {
     width: auto; /* Table is only as wide as necessary */
-    margin: 20px 0; /* Remove auto centering, keep top & bottom margin */
+    margin: 20px 0; /* Left-aligned */
     border-collapse: collapse;
     font-family: Arial, sans-serif;
 }
@@ -205,6 +205,11 @@
     display: block; /* Ensure it respects natural width */
 }
 
+/* Make negative numbers red */
+.styled-table td.negative {
+    color: red;
+}
+
 
 		
 
@@ -217,6 +222,16 @@ body {
 
 
     </style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".styled-table td").forEach(cell => {
+        if (cell.textContent.trim().match(/^-\d/)) {
+            cell.classList.add("negative");
+        }
+    });
+});
+
+</script>
 </head>
 <body>
     <div id="navbar-container"></div> <!-- Navbar will load here -->
