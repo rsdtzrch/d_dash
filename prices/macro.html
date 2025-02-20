@@ -211,6 +211,7 @@
 }
 
 
+
 		
 
 /* Push content down to avoid overlap */
@@ -222,16 +223,7 @@ body {
 
 
     </style>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".styled-table td").forEach(cell => {
-        if (cell.textContent.trim().match(/^-\d/)) {
-            cell.classList.add("negative");
-        }
-    });
-});
 
-</script>
 </head>
 <body>
     <div id="navbar-container"></div> <!-- Navbar will load here -->
@@ -299,6 +291,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".styled-table td").forEach(cell => {
+        if (cell.textContent.trim().match(/^-\d/)) {
+            cell.classList.add("negative");
+        }
+    });
+});
 
 </script>
 
