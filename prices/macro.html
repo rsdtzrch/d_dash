@@ -175,45 +175,36 @@
         }
 		
 		
-		.styled-table {
-			width: 80%;
-			margin: 20px auto;
-			border-collapse: collapse;
-			font-family: Arial, sans-serif;
-		}
+.styled-table {
+    width: auto; /* Table is only as wide as necessary */
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
 
-		.styled-table th, .styled-table td {
-			padding: 10px;
-			border: 1px solid #ddd;
-			text-align: left;
-		}
+.styled-table th, .styled-table td {
+    padding: 10px; /* Add padding for spacing */
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap; /* Prevent columns from stretching */
+}
 
-		.styled-table th {
-			background-color: #007bff;
-			color: white;
-		}
+.styled-table th {
+    background-color: #007bff;
+    color: white;
+}
 
-		.styled-table tr:nth-child(even) {
-			background-color: #f2f2f2;
-		}
-		
-        .table-container {
-            text-align: left;
-            margin-left: 10px; /* Minimal left margin */
-            width: fit-content;
-            display: inline-block; /* Prevent full-width stretching */
-        }
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-        .styled-table {
-            border-collapse: collapse;
-            font-family: Arial, sans-serif;
-        }
+.table-container {
+    text-align: left;
+    margin-left: 10px; /* Minimal left margin */
+    width: fit-content;
+    display: inline-block; /* Prevent full-width stretching */
+}
 
-        .styled-table th, .styled-table td {
-            padding: 6px; /* Reduce padding */
-            border: 1px solid #ddd;
-            text-align: left;
-        }
 		
 
 /* Push content down to avoid overlap */
