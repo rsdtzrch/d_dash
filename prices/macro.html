@@ -210,6 +210,10 @@
     color: red;
 }
 
+.negative {
+    color: red;
+}
+
 
 
 		
@@ -296,7 +300,8 @@ body {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".styled-table td").forEach(cell => {
-        if (cell.textContent.trim().match(/^-\d/)) {
+        let text = cell.textContent.trim();
+        if (/^-?\d+(\.\d+)?$/.test(text) && parseFloat(text) < 0) {
             cell.classList.add("negative");
         }
     });
