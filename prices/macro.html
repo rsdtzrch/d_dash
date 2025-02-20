@@ -177,7 +177,7 @@
 		
 .styled-table {
     width: auto; /* Table is only as wide as necessary */
-    margin: 20px auto;
+    margin: 20px 0; /* Remove auto centering, keep top & bottom margin */
     border-collapse: collapse;
     font-family: Arial, sans-serif;
 }
@@ -200,10 +200,11 @@
 
 .table-container {
     text-align: left;
-    margin-left: 10px; /* Minimal left margin */
+    margin-left: 10px; /* Align table to the left with minimal margin */
     width: fit-content;
-    display: inline-block; /* Prevent full-width stretching */
+    display: block; /* Ensure it respects natural width */
 }
+
 
 		
 
