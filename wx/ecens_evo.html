@@ -236,9 +236,54 @@ body {
 	<H4 id="timestamp">Last updated:</h4>
 	<p>Columns represent forecast issue date. Rows represent weather delivery date. Think of it as, for a fixed row, left to right tells you the timeline of how the forecast for that day evolves. Temps quoted in degrees Celsius. </p>
 	
+
+	<h2>Germany</h2>
+	<div id="table-container-7"></div>
 	
-	<h2> France</H2>
-    <div id="table-container-1"></div>
+	<h2>France</h2>
+	<div id="table-container-1"></div>
+
+	<h2>Italy</h2>
+	<div id="table-container-11"></div>
+
+	<h2>Netherlands</h2>
+	<div id="table-container-12"></div>
+
+	<h2>Austria</h2>
+	<div id="table-container-2"></div>
+
+	<h2>Switzerland</h2>
+	<div id="table-container-5"></div>
+
+	<h2>Belgium</h2>
+	<div id="table-container-3"></div>
+	<h2>Poland</h2>
+	<div id="table-container-13"></div>
+
+	<h2>Czech Republic</h2>
+	<div id="table-container-6"></div>
+
+	<h2>Hungary</h2>
+	<div id="table-container-10"></div>
+
+	<h2>Slovakia</h2>
+	<div id="table-container-16"></div>
+
+	<h2>Romania</h2>
+	<div id="table-container-14"></div>
+
+	<h2>Bulgaria</h2>
+	<div id="table-container-4"></div>
+
+	<h2>Greece</h2>
+	<div id="table-container-8"></div>
+
+	<h2>Croatia</h2>
+	<div id="table-container-9"></div>
+
+	<h2>Slovenia</h2>
+	<div id="table-container-15"></div>
+
 
 
 
@@ -317,6 +362,22 @@ body {
 
 	// Load multiple tables dynamically
 	loadTable("table-container-1", "ecens_evo/tbl/FR.html");
+	loadTable("table-container-2", "ecens_evo/tbl/AT.html");
+	loadTable("table-container-3", "ecens_evo/tbl/BE.html");
+	loadTable("table-container-4", "ecens_evo/tbl/BG.html");
+	loadTable("table-container-5", "ecens_evo/tbl/CH.html");
+	loadTable("table-container-6", "ecens_evo/tbl/CZ.html");
+	loadTable("table-container-7", "ecens_evo/tbl/DE.html");
+	loadTable("table-container-8", "ecens_evo/tbl/GR.html");
+	loadTable("table-container-9", "ecens_evo/tbl/HR.html");
+	loadTable("table-container-10", "ecens_evo/tbl/HU.html");
+	loadTable("table-container-11", "ecens_evo/tbl/IT.html");
+	loadTable("table-container-12", "ecens_evo/tbl/NL.html");
+	loadTable("table-container-13", "ecens_evo/tbl/PL.html");
+	loadTable("table-container-14", "ecens_evo/tbl/RO.html");
+	loadTable("table-container-15", "ecens_evo/tbl/SI.html");
+	loadTable("table-container-16", "ecens_evo/tbl/SK.html");
+
 </script>
 <script>
     fetch('ecens_evo/tbl/timestamp.json')  // Fetch the JSON file
