@@ -360,14 +360,25 @@ body {
 
 <!--table functions:-->
 <script>
-	function loadTable(tableContainer, tableFile) {
-		fetch(tableFile)
-		.then(response => response.text())
-		.then(data => {
-			document.getElementById(tableContainer).innerHTML = data;
-		})
-		.catch(error => console.error("Error loading table:", error));
-	}
+function loadTable(tableContainer, tableFile) {
+    fetch(tableFile)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById(tableContainer).innerHTML = data;
+        applyNegativeNumberStyling(); // Ensure negative number styling runs AFTER table is loaded
+    })
+    .catch(error => console.error("Error loading table:", error));
+}
+
+function applyNegativeNumberStyling() {
+    document.querySelectorAll(".styled-table td").forEach(cell => {
+        let text = cell.textContent.trim();
+        if (/^-?\d+(\.\d+)?$/.test(text) && parseFloat(text) < 0) {
+            cell.classList.add("negative");
+        }
+    });
+}
+
 
 	// Load multiple tables dynamically
 	loadTable("table-container-1", "ecens_evo_anom/tbl/FR.html");
@@ -399,24 +410,6 @@ body {
             console.error('Error:', error);
         });
 		
-function loadTable(tableContainer, tableFile) {
-    fetch(tableFile)
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById(tableContainer).innerHTML = data;
-        applyNegativeNumberStyling(); // Ensure negative number styling runs AFTER table is loaded
-    })
-    .catch(error => console.error("Error loading table:", error));
-}
-
-function applyNegativeNumberStyling() {
-    document.querySelectorAll(".styled-table td").forEach(cell => {
-        let text = cell.textContent.trim();
-        if (/^-?\d+(\.\d+)?$/.test(text) && parseFloat(text) < 0) {
-            cell.classList.add("negative");
-        }
-    });
-}
 
 </script>
 
