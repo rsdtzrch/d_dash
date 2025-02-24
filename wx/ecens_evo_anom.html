@@ -222,6 +222,15 @@ body {
     padding-top: 120px; /* Adjust this based on navbar height */
 }
 
+/* Make negative numbers red */
+.styled-table td.negative {
+    color: red;
+}
+
+.negative {
+    color: red;
+}
+
 
 
 
@@ -389,6 +398,26 @@ body {
             document.getElementById('timestamp').innerText = "Last updated: Error loading timestamp";
             console.error('Error:', error);
         });
+		
+function loadTable(tableContainer, tableFile) {
+    fetch(tableFile)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById(tableContainer).innerHTML = data;
+        applyNegativeNumberStyling(); // Ensure negative number styling runs AFTER table is loaded
+    })
+    .catch(error => console.error("Error loading table:", error));
+}
+
+function applyNegativeNumberStyling() {
+    document.querySelectorAll(".styled-table td").forEach(cell => {
+        let text = cell.textContent.trim();
+        if (/^-?\d+(\.\d+)?$/.test(text) && parseFloat(text) < 0) {
+            cell.classList.add("negative");
+        }
+    });
+}
+
 </script>
 
 
