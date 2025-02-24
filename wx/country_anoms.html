@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Anomalies</title>
+	<link rel="stylesheet" href="../navbar.css">
+	<link rel="stylesheet" href="../secondary_navbar.css">
+    <!-- Highcharts Scripts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+	<script src="../navbar.js" defer></script>
+	<script src="../img_modal.js" defer></script>
+	<script src="../heading_navbar.js" defer></script>
+	
+	<script src="/d_dash/auth.js"></script>
+	<script>
+		checkAuth(); // Ensure unauthorized users are redirected to login.html
+	</script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            margin: 50;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-decoration: underline;
+            color: navy;
+            font-family: Calibri, sans-serif;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: navy;
+            font-family: Calibri, sans-serif;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        h3 {
+            font-size: 28px;
+            color: navy;
+            font-family: Calibri, sans-serif;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        /* Chart row to align charts side by side */
+        .chart-row {
+            display: flex;
+            justify-content: flex-start; /* Align charts to the left */
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+            max-width: 100%;
+            padding-left: 20px; /* Add some spacing from the left */
+        }
+
+        /* Ensure charts fit well */
+        .chart-container {
+            width: 48%; /* Adjusted to ensure it doesn't take excessive space */
+            height: 500px;
+            min-width: 400px;
+            max-width: 600px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Image container */
+		.image-container {
+			display: flex; /* Makes the images appear side by side */
+			justify-content: flex-start; /* Aligns them to the left */
+			gap: 10px; /* Adds spacing between images */
+			margin-top: 20px;
+		}
+
+		.image-container img {
+			width: 620px;
+			height: 430px;
+			object-fit: cover;
+			cursor: pointer;
+		}
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+		
+		
+        /* Modal styles */
+        .modal_png {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content_png {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+					   
+						
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .close_png {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Enlarged chart */
+        .modal-chart-container {
+            width: 100%;
+            height: 100%;
+        }
+		
+        /* Enlarged image */
+        .modal-image-container_png img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+		
+		
+		.styled-table {
+			width: 80%;
+			margin: 20px auto;
+			border-collapse: collapse;
+			font-family: Arial, sans-serif;
+		}
+
+		.styled-table th, .styled-table td {
+			padding: 10px;
+			border: 1px solid #ddd;
+			text-align: left;
+		}
+
+		.styled-table th {
+			background-color: #007bff;
+			color: white;
+		}
+
+		.styled-table tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		
+        .table-container {
+            text-align: left;
+            margin-left: 10px; /* Minimal left margin */
+            width: fit-content;
+            display: inline-block; /* Prevent full-width stretching */
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        .styled-table th, .styled-table td {
+            padding: 6px; /* Reduce padding */
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+		
+
+/* Push content down to avoid overlap */
+body {
+    padding-top: 120px; /* Adjust this based on navbar height */
+}
+
+/* Make negative numbers red */
+.styled-table td.negative {
+    color: red;
+}
+
+.negative {
+    color: red;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div> <!-- Navbar will load here -->
+	<div id="page-navbar-container">
+		<ul id="page-navbar"></ul>
+	</div>
+    <h1>Temp Anomalies per Country</h1>
+	<H4 id="timestamp">Last updated:</h4>
+	<p>Difference between recorded temperature and normal temperature (as of Era5 standard 1985-2015), per country, per month, per year.</p>
+	
+
+	<h2>Germany</h2>
+	<div id="table-container-7"></div>
+	
+	<h2>France</h2>
+	<div id="table-container-1"></div>
+
+	<h2>Italy</h2>
+	<div id="table-container-11"></div>
+
+	<h2>Netherlands</h2>
+	<div id="table-container-12"></div>
+
+	<h2>Austria</h2>
+	<div id="table-container-2"></div>
+
+	<h2>Switzerland</h2>
+	<div id="table-container-5"></div>
+
+	<h2>Belgium</h2>
+	<div id="table-container-3"></div>
+	<h2>Poland</h2>
+	<div id="table-container-13"></div>
+
+	<h2>Czech Republic</h2>
+	<div id="table-container-6"></div>
+
+	<h2>Hungary</h2>
+	<div id="table-container-10"></div>
+
+	<h2>Slovakia</h2>
+	<div id="table-container-16"></div>
+
+	<h2>Romania</h2>
+	<div id="table-container-14"></div>
+
+	<h2>Bulgaria</h2>
+	<div id="table-container-4"></div>
+
+	<h2>Greece</h2>
+	<div id="table-container-8"></div>
+
+	<h2>Croatia</h2>
+	<div id="table-container-9"></div>
+
+	<h2>Slovenia</h2>
+	<div id="table-container-15"></div>
+
+
+
+
+
+<script>
+    function initializeChart(containerId, jsonFile) {
+        // Function to load chart from JSON
+        function loadChart() {
+            fetch(jsonFile)
+            .then(response => response.json())
+            .then(chartConfig => {
+                Highcharts.chart(containerId, chartConfig);
+            })
+            .catch(error => console.error("Error loading chart config:", error));
+        }
+
+        // Load the chart
+        loadChart();
+
+        // Click-to-Enlarge Feature
+        document.addEventListener("DOMContentLoaded", function() {
+            var modal = document.getElementById("chartModal");
+            var modalContent = document.getElementById("modal-chart-container");
+            var closeBtn = document.querySelector(".close");
+
+            function enlargeChart() {
+                var chart = Highcharts.charts.find(c => c.renderTo.id === containerId);
+                if (chart) {
+                    modal.style.display = "flex";
+                    modalContent.innerHTML = "";
+
+                    // Create a new chart inside the modal
+                    Highcharts.chart("modal-chart-container", {
+                        ...chart.options,
+                        chart: {
+                            ...chart.options.chart,
+                            renderTo: "modal-chart-container",
+                            width: null,
+                            height: null
+                        }
+                    });
+                }
+            }
+
+            document.getElementById(containerId).addEventListener("click", function() {
+                enlargeChart();
+            });
+
+            closeBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    }
+
+    // Initialize multiple charts using the function
+
+
+</script>
+
+<!--table functions:-->
+<script>
+function loadTable(tableContainer, tableFile) {
+    fetch(tableFile)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById(tableContainer).innerHTML = data;
+        applyNegativeNumberStyling(); // Ensure negative number styling runs AFTER table is loaded
+    })
+    .catch(error => console.error("Error loading table:", error));
+}
+
+function applyNegativeNumberStyling() {
+    document.querySelectorAll(".styled-table td").forEach(cell => {
+        let text = cell.textContent.trim();
+        if (/^-?\d+(\.\d+)?$/.test(text) && parseFloat(text) < 0) {
+            cell.classList.add("negative");
+        }
+    });
+}
+
+
+	// Load multiple tables dynamically
+	loadTable("table-container-1", "country_anoms/tbl/FR.html");
+	loadTable("table-container-2", "country_anoms/tbl/AT.html");
+	loadTable("table-container-3", "country_anoms/tbl/BE.html");
+	loadTable("table-container-4", "country_anoms/tbl/BG.html");
+	loadTable("table-container-5", "country_anoms/tbl/CH.html");
+	loadTable("table-container-6", "country_anoms/tbl/CZ.html");
+	loadTable("table-container-7", "country_anoms/tbl/DE.html");
+	loadTable("table-container-8", "country_anoms/tbl/GR.html");
+	loadTable("table-container-9", "country_anoms/tbl/HR.html");
+	loadTable("table-container-10", "country_anoms/tbl/HU.html");
+	loadTable("table-container-11", "country_anoms/tbl/IT.html");
+	loadTable("table-container-12", "country_anoms/tbl/NL.html");
+	loadTable("table-container-13", "country_anoms/tbl/PL.html");
+	loadTable("table-container-14", "country_anoms/tbl/RO.html");
+	loadTable("table-container-15", "country_anoms/tbl/SI.html");
+	loadTable("table-container-16", "country_anoms/tbl/SK.html");
+
+</script>
+<script>
+    fetch('country_anoms/tbl/timestamp.json')  // Fetch the JSON file
+        .then(response => response.json()) 
+        .then(data => {
+            document.getElementById('timestamp').innerText = "Last updated: " + data.timestamp;
+        })
+        .catch(error => {
+            document.getElementById('timestamp').innerText = "Last updated: Error loading timestamp";
+            console.error('Error:', error);
+        });
+		
+
+
+
+</script>
+
+
+	
+</body>
+</html>
