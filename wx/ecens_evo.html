@@ -242,89 +242,6 @@ body {
 
 
 
-    <!-- Image Row -->
-    <div class="image-container" id="imageBox">
-		<img src="nwe/img/sumwin.png" alt="Test Image">
-    </div>
-	
-	    <!-- Modal for Enlarged Chart -->
-    <div id="chartModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="modal-chart-container" class="modal-chart-container"></div>
-        </div>
-    </div>
-	
-    <!-- Modal for Enlarged Image -->
-    <div id="imageModal" class="modal_png">
-        <div class="modal-content_png">
-            <span class="close_png">&times;</span>
-            <div class="modal-image-container_png">
-				<img src="nwe/img/sumwin.png" alt="Test Image">
-
-            </div>
-        </div>
-    </div>
-	
-    <div class="chart-row">
-        <div class="chart-container" id="nwe_stock_bcm"></div>
-        <div class="chart-container" id="nwe_stock_pc"></div>
-        <div class="chart-container" id="nwe_netwd"></div>
-    </div>
-	
-	<h2> Stock level table (Bcm)</H2>
-    <div id="table-container-1"></div>
-    <h2> Stock level table (%)</H2>
-	<div id="table-container-2"></div>
-	<h2> Net withdrawal table (mcm/d)</H2>
-    <div id="table-container-3"></div>
-
-	
-	<h2>Country Stocks (bcm)</h2>
-    <div class="chart-row">
-        <div class="chart-container" id="uk_stock_bcm"></div>
-        <div class="chart-container" id="nl_stock_bcm"></div>
-        <div class="chart-container" id="be_stock_bcm"></div>
-    </div>
-    <div class="chart-row">
-        <div class="chart-container" id="de_stock_bcm"></div>
-        <div class="chart-container" id="fr_stock_bcm"></div>
-        <div class="chart-container" id="it_stock_bcm"></div>
-    </div>
-    <div class="chart-row">
-        <div class="chart-container" id="at_stock_bcm"></div>
-    </div>
-	
-	<h2>Country Stocks (%)</h2>
-    <div class="chart-row">
-        <div class="chart-container" id="nl_stock_pc"></div>
-        <div class="chart-container" id="uk_stock_pc"></div>
-        <div class="chart-container" id="be_stock_pc"></div>
-    </div>
-    <div class="chart-row">
-        <div class="chart-container" id="de_stock_pc"></div>
-        <div class="chart-container" id="fr_stock_pc"></div>
-        <div class="chart-container" id="it_stock_pc"></div>
-    </div>
-    <div class="chart-row">
-        <div class="chart-container" id="at_stock_pc"></div>
-    </div>
-	
-	<h2>Country Net Withdrawal (mcm/d)</h2>
-    <div class="chart-row">
-        <div class="chart-container" id="nl_netwd"></div>
-        <div class="chart-container" id="uk_netwd"></div>
-        <div class="chart-container" id="be_netwd"></div>
-    </div>
-    <div class="chart-row">
-        <div class="chart-container" id="de_netwd"></div>
-        <div class="chart-container" id="fr_netwd"></div>
-        <div class="chart-container" id="it_netwd"></div>
-    </div>
-    <div class="chart-row">
-        <div class="chart-container" id="at_netwd"></div>
-    </div>
-
 
 <script>
     function initializeChart(containerId, jsonFile) {
@@ -383,37 +300,6 @@ body {
     }
 
     // Initialize multiple charts using the function
-	initializeChart("nwe_stock_bcm", "nwe/json_config/nwe_stock_bcm.json");
-	initializeChart("nwe_stock_pc", "nwe/json_config/nwe_stock_pc.json");
-	initializeChart("nwe_netwd", "nwe/json_config/nwe_netwd.json");
-
-	initializeChart("uk_stock_bcm", "nwe/json_config/uk_stock_bcm.json");
-	initializeChart("uk_stock_pc", "nwe/json_config/uk_stock_pc.json");
-	initializeChart("uk_netwd", "nwe/json_config/uk_netwd.json");
-
-	initializeChart("fr_stock_bcm", "nwe/json_config/fr_stock_bcm.json");
-	initializeChart("fr_stock_pc", "nwe/json_config/fr_stock_pc.json");
-	initializeChart("fr_netwd", "nwe/json_config/fr_netwd.json");
-
-	initializeChart("nl_stock_bcm", "nwe/json_config/nl_stock_bcm.json");
-	initializeChart("nl_stock_pc", "nwe/json_config/nl_stock_pc.json");
-	initializeChart("nl_netwd", "nwe/json_config/nl_netwd.json");
-
-	initializeChart("be_stock_bcm", "nwe/json_config/be_stock_bcm.json");
-	initializeChart("be_stock_pc", "nwe/json_config/be_stock_pc.json");
-	initializeChart("be_netwd", "nwe/json_config/be_netwd.json");
-
-	initializeChart("de_stock_bcm", "nwe/json_config/de_stock_bcm.json");
-	initializeChart("de_stock_pc", "nwe/json_config/de_stock_pc.json");
-	initializeChart("de_netwd", "nwe/json_config/de_netwd.json");
-
-	initializeChart("it_stock_bcm", "nwe/json_config/it_stock_bcm.json");
-	initializeChart("it_stock_pc", "nwe/json_config/it_stock_pc.json");
-	initializeChart("it_netwd", "nwe/json_config/it_netwd.json");
-
-	initializeChart("at_stock_bcm", "nwe/json_config/at_stock_bcm.json");
-	initializeChart("at_stock_pc", "nwe/json_config/at_stock_pc.json");
-	initializeChart("at_netwd", "nwe/json_config/at_netwd.json");
 
 
 </script>
@@ -431,8 +317,6 @@ body {
 
 	// Load multiple tables dynamically
 	loadTable("table-container-1", "ecens_evo/tbl/FR.html");
-	loadTable("table-container-2", "nwe/tbl/stocks_pc.html");
-	loadTable("table-container-3", "nwe/tbl/netwd.html");
 </script>
 <script>
     fetch('wx/ecens_evo/timestamp.json')  // Fetch the JSON file
