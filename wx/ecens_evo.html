@@ -319,7 +319,7 @@ body {
 	loadTable("table-container-1", "ecens_evo/tbl/FR.html");
 </script>
 <script>
-    fetch('wx/ecens_evo/timestamp.json')  // Fetch the JSON file
+    fetch('wx/ecens_evo/tbl/timestamp.json')  // Fetch the JSON file
         .then(response => response.json()) 
         .then(data => {
             document.getElementById('timestamp').innerText = "Last updated: " + data.timestamp;
