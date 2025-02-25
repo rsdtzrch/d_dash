@@ -256,96 +256,115 @@ body {
 	<h2>Germany</h2>
 	<div id="table-container-7"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="DE"></div>
-    </div>
-	
+		<div class="chart-container" id="DE_delivery"></div>
+		<div class="chart-container" id="DE_issue"></div>
+	</div>
+
 	<h2>France</h2>
 	<div id="table-container-1"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="FR"></div>
-    </div>
+		<div class="chart-container" id="FR_delivery"></div>
+		<div class="chart-container" id="FR_issue"></div>
+	</div>
 
 	<h2>Italy</h2>
 	<div id="table-container-11"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="IT"></div>
-    </div>
+		<div class="chart-container" id="IT_delivery"></div>
+		<div class="chart-container" id="IT_issue"></div>
+	</div>
+
 	<h2>Netherlands</h2>
 	<div id="table-container-12"></div>
-		<div class="chart-row">
-        <div class="chart-container" id="NL"></div>
-    </div>
+	<div class="chart-row">
+		<div class="chart-container" id="NL_delivery"></div>
+		<div class="chart-container" id="NL_issue"></div>
+	</div>
 
 	<h2>Austria</h2>
 	<div id="table-container-2"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="AT"></div>
-    </div>
+		<div class="chart-container" id="AT_delivery"></div>
+		<div class="chart-container" id="AT_issue"></div>
+	</div>
 
 	<h2>Switzerland</h2>
 	<div id="table-container-5"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="CH"></div>
-    </div>
+		<div class="chart-container" id="CH_delivery"></div>
+		<div class="chart-container" id="CH_issue"></div>
+	</div>
 
 	<h2>Belgium</h2>
 	<div id="table-container-3"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="BE"></div>
-    </div>
+		<div class="chart-container" id="BE_delivery"></div>
+		<div class="chart-container" id="BE_issue"></div>
+	</div>
+
 	<h2>Poland</h2>
 	<div id="table-container-13"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="PL"></div>
-    </div>
+		<div class="chart-container" id="PL_delivery"></div>
+		<div class="chart-container" id="PL_issue"></div>
+	</div>
 
 	<h2>Czech Republic</h2>
 	<div id="table-container-6"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="CZ"></div>
-    </div>
+		<div class="chart-container" id="CZ_delivery"></div>
+		<div class="chart-container" id="CZ_issue"></div>
+	</div>
 
 	<h2>Hungary</h2>
 	<div id="table-container-10"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="HU"></div>
-    </div>
+		<div class="chart-container" id="HU_delivery"></div>
+		<div class="chart-container" id="HU_issue"></div>
+	</div>
 
 	<h2>Slovakia</h2>
 	<div id="table-container-16"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="SK"></div>
-    </div>
+		<div class="chart-container" id="SK_delivery"></div>
+		<div class="chart-container" id="SK_issue"></div>
+	</div>
 
 	<h2>Romania</h2>
 	<div id="table-container-14"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="RO"></div>
-    </div>
+		<div class="chart-container" id="RO_delivery"></div>
+		<div class="chart-container" id="RO_issue"></div>
+	</div>
 
 	<h2>Bulgaria</h2>
 	<div id="table-container-4"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="BU"></div>
-    </div>
+		<div class="chart-container" id="BG_delivery"></div>
+		<div class="chart-container" id="BG_issue"></div>
+	</div>
 
 	<h2>Greece</h2>
 	<div id="table-container-8"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="GR"></div>
-    </div>
+		<div class="chart-container" id="GR_delivery"></div>
+		<div class="chart-container" id="GR_issue"></div>
+	</div>
 
 	<h2>Croatia</h2>
 	<div id="table-container-9"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="HR"></div>
-    </div>
+		<div class="chart-container" id="HR_delivery"></div>
+		<div class="chart-container" id="HR_issue"></div>
+	</div>
 
 	<h2>Slovenia</h2>
 	<div id="table-container-15"></div>
 	<div class="chart-row">
-        <div class="chart-container" id="SI"></div>
-    </div>
+		<div class="chart-container" id="SI_delivery"></div>
+		<div class="chart-container" id="SI_issue"></div>
+	</div>
+
 
 
 
@@ -407,22 +426,39 @@ body {
             });
         });
     }
-	initializeChart("DE", "ecens_evo_anom/json_config/DE.json");
-	initializeChart("FR", "ecens_evo_anom/json_config/FR.json");
-	initializeChart("AT", "ecens_evo_anom/json_config/AT.json");
-	initializeChart("BE", "ecens_evo_anom/json_config/BE.json");
-	initializeChart("BG", "ecens_evo_anom/json_config/BG.json");
-	initializeChart("CH", "ecens_evo_anom/json_config/CH.json");
-	initializeChart("CZ", "ecens_evo_anom/json_config/CZ.json");
-	initializeChart("GR", "ecens_evo_anom/json_config/GR.json");
-	initializeChart("HR", "ecens_evo_anom/json_config/HR.json");
-	initializeChart("HU", "ecens_evo_anom/json_config/HU.json");
-	initializeChart("IT", "ecens_evo_anom/json_config/IT.json");
-	initializeChart("NL", "ecens_evo_anom/json_config/NL.json");
-	initializeChart("PL", "ecens_evo_anom/json_config/PL.json");
-	initializeChart("RO", "ecens_evo_anom/json_config/RO.json");
-	initializeChart("SI", "ecens_evo_anom/json_config/SI.json");
-	initializeChart("SK", "ecens_evo_anom/json_config/SK.json");
+	initializeChart("DE_delivery", "ecens_evo/json_config/DE_delivery.json");
+	initializeChart("FR_delivery", "ecens_evo/json_config/FR_delivery.json");
+	initializeChart("AT_delivery", "ecens_evo/json_config/AT_delivery.json");
+	initializeChart("BE_delivery", "ecens_evo/json_config/BE_delivery.json");
+	initializeChart("BG_delivery", "ecens_evo/json_config/BG_delivery.json");
+	initializeChart("CH_delivery", "ecens_evo/json_config/CH_delivery.json");
+	initializeChart("CZ_delivery", "ecens_evo/json_config/CZ_delivery.json");
+	initializeChart("GR_delivery", "ecens_evo/json_config/GR_delivery.json");
+	initializeChart("HR_delivery", "ecens_evo/json_config/HR_delivery.json");
+	initializeChart("HU_delivery", "ecens_evo/json_config/HU_delivery.json");
+	initializeChart("IT_delivery", "ecens_evo/json_config/IT_delivery.json");
+	initializeChart("NL_delivery", "ecens_evo/json_config/NL_delivery.json");
+	initializeChart("PL_delivery", "ecens_evo/json_config/PL_delivery.json");
+	initializeChart("RO_delivery", "ecens_evo/json_config/RO_delivery.json");
+	initializeChart("SI_delivery", "ecens_evo/json_config/SI_delivery.json");
+	initializeChart("SK_delivery", "ecens_evo/json_config/SK_delivery.json");
+	
+	initializeChart("DE_issue", "ecens_evo/json_config/DE_issue.json");
+	initializeChart("FR_issue", "ecens_evo/json_config/FR_issue.json");
+	initializeChart("AT_issue", "ecens_evo/json_config/AT_issue.json");
+	initializeChart("BE_issue", "ecens_evo/json_config/BE_issue.json");
+	initializeChart("BG_issue", "ecens_evo/json_config/BG_issue.json");
+	initializeChart("CH_issue", "ecens_evo/json_config/CH_issue.json");
+	initializeChart("CZ_issue", "ecens_evo/json_config/CZ_issue.json");
+	initializeChart("GR_issue", "ecens_evo/json_config/GR_issue.json");
+	initializeChart("HR_issue", "ecens_evo/json_config/HR_issue.json");
+	initializeChart("HU_issue", "ecens_evo/json_config/HU_issue.json");
+	initializeChart("IT_issue", "ecens_evo/json_config/IT_issue.json");
+	initializeChart("NL_issue", "ecens_evo/json_config/NL_issue.json");
+	initializeChart("PL_issue", "ecens_evo/json_config/PL_issue.json");
+	initializeChart("RO_issue", "ecens_evo/json_config/RO_issue.json");
+	initializeChart("SI_issue", "ecens_evo/json_config/SI_issue.json");
+	initializeChart("SK_issue", "ecens_evo/json_config/SK_issue.json");
     // Initialize multiple charts using the function
 
 
