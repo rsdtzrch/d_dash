@@ -248,50 +248,97 @@ body {
 
 	<h2>Germany</h2>
 	<div id="table-container-7"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="DE"></div>
+    </div>
 	
 	<h2>France</h2>
 	<div id="table-container-1"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="FR"></div>
+    </div>
 
 	<h2>Italy</h2>
 	<div id="table-container-11"></div>
-
+	<div class="chart-row">
+        <div class="chart-container" id="IT"></div>
+    </div>
 	<h2>Netherlands</h2>
 	<div id="table-container-12"></div>
+		<div class="chart-row">
+        <div class="chart-container" id="NL"></div>
+    </div>
 
 	<h2>Austria</h2>
 	<div id="table-container-2"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="AT"></div>
+    </div>
 
 	<h2>Switzerland</h2>
 	<div id="table-container-5"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="CH"></div>
+    </div>
 
 	<h2>Belgium</h2>
 	<div id="table-container-3"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="BE"></div>
+    </div>
 	<h2>Poland</h2>
 	<div id="table-container-13"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="PL"></div>
+    </div>
 
 	<h2>Czech Republic</h2>
 	<div id="table-container-6"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="CZ"></div>
+    </div>
 
 	<h2>Hungary</h2>
 	<div id="table-container-10"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="HU"></div>
+    </div>
 
 	<h2>Slovakia</h2>
 	<div id="table-container-16"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="SK"></div>
+    </div>
 
 	<h2>Romania</h2>
 	<div id="table-container-14"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="RO"></div>
+    </div>
 
 	<h2>Bulgaria</h2>
 	<div id="table-container-4"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="BU"></div>
+    </div>
 
 	<h2>Greece</h2>
 	<div id="table-container-8"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="GR"></div>
+    </div>
 
 	<h2>Croatia</h2>
 	<div id="table-container-9"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="HR"></div>
+    </div>
 
 	<h2>Slovenia</h2>
 	<div id="table-container-15"></div>
+	<div class="chart-row">
+        <div class="chart-container" id="SI"></div>
+    </div>
 
 
 
@@ -352,6 +399,24 @@ body {
             });
         });
     }
+	
+	initializeChart("DE", "ecens_evo/json_config/DE.html");
+	initializeChart("FR", "ecens_evo/json_config/FR.html");
+	initializeChart("AT", "ecens_evo/json_config/AT.html");
+	initializeChart("BE", "ecens_evo/json_config/BE.html");
+	initializeChart("BG", "ecens_evo/json_config/BG.html");
+	initializeChart("CH", "ecens_evo/json_config/CH.html");
+	initializeChart("CZ", "ecens_evo/json_config/CZ.html");
+	initializeChart("GR", "ecens_evo/json_config/GR.html");
+	initializeChart("HR", "ecens_evo/json_config/HR.html");
+	initializeChart("HU", "ecens_evo/json_config/HU.html");
+	initializeChart("IT", "ecens_evo/json_config/IT.html");
+	initializeChart("NL", "ecens_evo/json_config/NL.html");
+	initializeChart("PL", "ecens_evo/json_config/PL.html");
+	initializeChart("RO", "ecens_evo/json_config/RO.html");
+	initializeChart("SI", "ecens_evo/json_config/SI.html");
+	initializeChart("SK", "ecens_evo/json_config/SK.html");
+
 
     // Initialize multiple charts using the function
 
