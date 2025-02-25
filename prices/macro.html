@@ -254,7 +254,18 @@ body {
 	<h2>DA Spreads History</H2>
     <div id="table-container-6"></div>
 	
-	<H1>Flows</H1>
+	<H1>Flows (Charts)</H1>
+	<div class="chart-row">
+        <div class="chart-container" id="container-1"></div>
+        <div class="chart-container" id="container-2"></div>
+        <div class="chart-container" id="container-3"></div>
+    </div>
+	
+	<div class="chart-row">
+        <div class="chart-container" id="container-4"></div>
+    </div>
+	
+	<H1>Flows (Tables)</H1>
 	<h2>EU Key Supply Sources</H2>
     <div id="table-container-7"></div>
 	
@@ -329,6 +340,12 @@ body {
             });
         });
     }
+	
+	initializeChart("container1", "json_config/eusupply.json");
+	initializeChart("container2", "json_config/lngregas.json");
+	initializeChart("container3", "json_config/uaimport.json");
+	initializeChart("container4", "json_config/usfeed.json");
+
 
 </script>
 <script>
